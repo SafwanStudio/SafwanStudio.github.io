@@ -41,7 +41,6 @@ body {
 main {
   position: relative;
   z-index: 1;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   padding: 30px 7%;
@@ -51,6 +50,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 15px;
   font-size: 12px;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -73,16 +73,15 @@ header {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #a94f26;
+  background: var(--orange);
   box-shadow: 0 0 10px #a94f2670;
 }
 
 .hero {
-  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 85px 0 100px;
+  padding: 100px 0 80px;
   max-width: 800px;
 }
 
@@ -118,7 +117,7 @@ h1 span {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 38px;
+  margin-top: 25px;
 }
 
 .link {
@@ -130,7 +129,7 @@ h1 span {
   color: var(--ink);
   text-decoration: none;
   font-size: 13px;
-  background: #fdfcf9d9;
+  background: #fdfcf9e8;
   transition: background .25s, color .25s, border-color .25s, transform .25s;
 }
 
@@ -159,10 +158,135 @@ h1 span {
   margin-bottom: 15px;
 }
 
+/* Contact section */
+
+.contact {
+  width: 100%;
+  max-width: 650px;
+  padding: 45px 0 85px;
+  scroll-margin-top: 25px;
+}
+
+.contact-heading {
+  font-size: clamp(32px, 6vw, 48px);
+  letter-spacing: -2px;
+  margin-bottom: 12px;
+}
+
+.contact-heading span {
+  color: var(--orange);
+}
+
+.contact-description {
+  color: #77736c;
+  font-size: 14px;
+  line-height: 1.8;
+  max-width: 440px;
+  margin-bottom: 30px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.field label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #514c45;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 14px;
+  font: inherit;
+  font-size: 14px;
+  color: var(--ink);
+  background: #fffefa;
+  border: 1px solid #e5e0d8;
+  border-radius: 0;
+  outline: none;
+  transition: border-color .2s;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--orange);
+}
+
+.field textarea {
+  min-height: 145px;
+  resize: vertical;
+  line-height: 1.7;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #aaa49a;
+}
+
+.send-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  padding: 17px 19px;
+  border: 1px solid var(--orange);
+  background: var(--orange);
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s, transform .2s;
+}
+
+.send-button:hover {
+  background: #8f401e;
+  transform: translateY(-2px);
+}
+
+.send-button:disabled {
+  opacity: .6;
+  cursor: wait;
+  transform: none;
+}
+
+.form-status {
+  display: none;
+  padding: 14px;
+  font-size: 13px;
+  line-height: 1.7;
+  background: #f1eee7;
+  color: var(--ink);
+  border-left: 3px solid var(--orange);
+}
+
+.form-status.visible {
+  display: block;
+}
+
 footer {
   display: flex;
   justify-content: space-between;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
   padding-top: 22px;
   border-top: 1px solid #e9e5de;
   color: #928b80;
@@ -175,12 +299,17 @@ footer {
     padding: 24px 7%;
   }
 
+  header {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
   h1 {
     letter-spacing: -4px;
   }
 
   .hero {
-    padding: 100px 0;
+    padding: 100px 0 65px;
   }
 
   .intro {
@@ -191,6 +320,14 @@ footer {
     flex: 1;
     justify-content: space-between;
     min-width: 135px;
+  }
+
+  .contact {
+    padding-bottom: 65px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
   }
 
   footer {
@@ -229,7 +366,85 @@ footer {
     <span>YouTube</span>
     <span class="arrow">↗</span>
   </a>
+
+  <a class="link" href="#contact">
+    <span>Get in touch</span>
+    <span class="arrow">↓</span>
+  </a>
 </div>
+
+  </section>  <section class="contact" id="contact">
+    <p class="section-label">LET'S TALK</p><h2 class="contact-heading">Have something<br>in <span>mind?</span></h2>
+
+<p class="contact-description">
+  Have an idea, a suggestion, or want to work together?
+  Send me a message. I'd love to hear from you.
+</p>
+
+<form
+  class="contact-form"
+  id="contact-form"
+  action="https://formspree.io/f/xaeqjynw"
+  method="POST"
+>
+  <div class="form-row">
+    <div class="field">
+      <label for="name">Your name</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="What should I call you?"
+        maxlength="100"
+        required
+      >
+    </div>
+
+    <div class="field">
+      <label for="email">Your email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="you@example.com"
+        maxlength="254"
+        required
+      >
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="reason">What's this about?</label>
+    <select id="reason" name="reason" required>
+      <option value="" selected disabled>Choose a topic</option>
+      <option value="Collaboration on an existing project">Collaboration on an existing project</option>
+      <option value="Collaboration on a new project">Collaboration on a new project</option>
+      <option value="Game suggestions and feedback">Game suggestions and feedback</option>
+      <option value="Bug report">Reporting a bug or problem</option>
+      <option value="Other">Something else</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="message">Your message</label>
+    <textarea
+      id="message"
+      name="message"
+      placeholder="Tell me what's on your mind..."
+      maxlength="5000"
+      required
+    ></textarea>
+  </div>
+
+  <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+  <button class="send-button" id="send-button" type="submit">
+    <span>Send message</span>
+    <span>↗</span>
+  </button>
+
+  <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+</form>
 
   </section>  <footer>
     <span>SAFWAN STUDIO</span>
@@ -247,6 +462,7 @@ footer {
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     width = window.innerWidth;
     height = window.innerHeight;
+
     canvas.width = width * dpr;
     canvas.height = height * dpr;
     canvas.style.width = width + "px";
@@ -254,6 +470,7 @@ footer {
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
     const count = Math.min(48, Math.max(20, Math.floor(width / 18)));
+
     pieces = Array.from({ length: count }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
@@ -280,6 +497,7 @@ footer {
         p.y = height + 20;
         p.x = Math.random() * width;
       }
+
       if (p.x < -20) p.x = width + 10;
       if (p.x > width + 20) p.x = -10;
 
@@ -298,6 +516,48 @@ footer {
   window.addEventListener("resize", resize);
   resize();
   animate();
+})();
+
+/* Send the form without leaving the website */
+(() => {
+  const form = document.getElementById("contact-form");
+  const button = document.getElementById("send-button");
+  const status = document.getElementById("form-status");
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    if (!form.reportValidity()) return;
+
+    const originalButton = button.innerHTML;
+    button.disabled = true;
+    button.innerHTML = "<span>Sending...</span><span>…</span>";
+    status.classList.remove("visible");
+    status.textContent = "";
+
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: {
+          "Accept": "application/json"
+        }
+      });
+
+      if (response.ok) {
+        form.reset();
+        status.textContent = "Message sent successfully! Thank you for reaching out.";
+      } else {
+        status.textContent = "Couldn't send your message. Please try again in a moment.";
+      }
+    } catch (error) {
+      status.textContent = "Connection error. Check your internet and try again.";
+    }
+
+    status.classList.add("visible");
+    button.disabled = false;
+    button.innerHTML = originalButton;
+  });
 })();
 </script></body>
   </html>
