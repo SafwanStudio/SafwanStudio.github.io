@@ -1,0 +1,302 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Safwan — Creative Space</title>
+<meta name="description" content="A personal space for games, experiments, and creative projects by Safwan."><style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --orange: #a94f26;
+  --paper: #fdfcf9;
+  --ink: #24221f;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+#particles {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 7%;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #77736c;
+}
+
+.status span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #a94f26;
+  box-shadow: 0 0 10px #a94f2670;
+}
+
+.hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 85px 0 100px;
+  max-width: 800px;
+}
+
+.eyebrow {
+  color: var(--orange);
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+
+h1 {
+  font-size: clamp(58px, 12vw, 130px);
+  font-weight: 800;
+  line-height: .9;
+  letter-spacing: -7px;
+  margin-left: -7px;
+}
+
+h1 span {
+  color: var(--orange);
+}
+
+.intro {
+  max-width: 390px;
+  margin-top: 30px;
+  color: #77736c;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 38px;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  padding: 15px 18px;
+  border: 1px solid #e5e0d8;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 13px;
+  background: #fdfcf9d9;
+  transition: background .25s, color .25s, border-color .25s, transform .25s;
+}
+
+.link .arrow {
+  color: var(--orange);
+  transition: transform .25s;
+}
+
+.link:hover {
+  background: var(--orange);
+  color: white;
+  border-color: var(--orange);
+  transform: translateY(-3px);
+}
+
+.link:hover .arrow {
+  color: white;
+  transform: translate(3px, -3px);
+}
+
+.section-label {
+  color: #aaa49a;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 22px;
+  border-top: 1px solid #e9e5de;
+  color: #928b80;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 500px) {
+  main {
+    padding: 24px 7%;
+  }
+
+  h1 {
+    letter-spacing: -4px;
+  }
+
+  .hero {
+    padding: 100px 0;
+  }
+
+  .intro {
+    font-size: 14px;
+  }
+
+  .link {
+    flex: 1;
+    justify-content: space-between;
+    min-width: 135px;
+  }
+
+  footer {
+    font-size: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+</style></head><body>
+<canvas id="particles"></canvas><main>
+  <header>
+    <div class="logo">S<span style="color:var(--orange)">.</span></div>
+    <div class="status"><span></span> Independent Creator</div>
+  </header>  <section class="hero">
+    <p class="eyebrow">A small corner of the internet</p><h1>Hi, I'm<br><span>Safwan.</span></h1>
+
+<p class="intro">
+  I create games, explore ideas, and turn small thoughts into
+  something you can experience. This is where my work lives.
+</p>
+
+<p class="section-label" style="margin-top:45px;">Find me elsewhere</p>
+
+<div class="links">
+  <a class="link" href="https://safwan4.itch.io/" target="_blank" rel="noopener noreferrer">
+    <span>Games on itch.io</span>
+    <span class="arrow">↗</span>
+  </a>
+
+  <a class="link" href="https://youtube.com/@safwan-h9i?si=HvaBaPINqXkTcoT0" target="_blank" rel="noopener noreferrer">
+    <span>YouTube</span>
+    <span class="arrow">↗</span>
+  </a>
+</div>
+
+  </section>  <footer>
+    <span>SAFWAN STUDIO</span>
+    <span>MADE WITH CURIOSITY © 2026</span>
+  </footer>
+</main><script>
+(() => {
+  const canvas = document.getElementById("particles");
+  const ctx = canvas.getContext("2d");
+
+  let width, height, pieces = [];
+  const colors = ["#a94f26", "#c8794c", "#e0b49a", "#d8c2ad", "#8f4324"];
+
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    canvas.style.width = width + "px";
+    canvas.style.height = height + "px";
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    const count = Math.min(48, Math.max(20, Math.floor(width / 18)));
+    pieces = Array.from({ length: count }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      w: 3 + Math.random() * 9,
+      h: 5 + Math.random() * 13,
+      angle: Math.random() * Math.PI,
+      spin: (Math.random() - .5) * .008,
+      vx: (Math.random() - .5) * .22,
+      vy: -.12 - Math.random() * .25,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      alpha: .25 + Math.random() * .5
+    }));
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, width, height);
+
+    for (const p of pieces) {
+      p.x += p.vx;
+      p.y += p.vy;
+      p.angle += p.spin;
+
+      if (p.y < -25) {
+        p.y = height + 20;
+        p.x = Math.random() * width;
+      }
+      if (p.x < -20) p.x = width + 10;
+      if (p.x > width + 20) p.x = -10;
+
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.angle);
+      ctx.globalAlpha = p.alpha;
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+      ctx.restore();
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  window.addEventListener("resize", resize);
+  resize();
+  animate();
+})();
+</script></body>
+  </html>
